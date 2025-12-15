@@ -6,35 +6,57 @@ Bank loan analysis is the process of examining customer and financial data to as
 This project is a complete Bank Loan Analysis system that I built using SQL, Power Query, and Power BI.
 The goal of the project was to understand the bank’s loan patterns, borrower behavior, repayment performance, and overall risk across different segments.
 I followed an end-to-end process that includes:
+
   Data import
+  
   Data cleaning
+  
   SQL analysis
+  
   Power BI modeling
+  
   Report building
+  
   Publishing and dashboard creation
+  
 This project represents the workflow of a real data analyst in a banking environment.”
 
 **2. Data Cleaning using Power Query Editor **
 
 I started with a raw dataset containing borrower information, loan details, financial metrics, and repayment history.
+
 Before analysis, the dataset needed extensive cleaning.
+
 In Power Query Editor, I:
+
 • Removed missing and duplicate entries
+
 • Standardized text fields like emp_length, purpose, and home_ownership
+
 • Transformed date fields (issue_date, last_payment_date, last_credit_pull_date)
+
 • Converted all numeric columns into proper decimal formats
+
 • Extracted Month and Year from issue_date for trend analysis
+
 • Ensured naming consistency across all columns
+
 • Checked the distribution of categorical values to remove noise and unclear data
 
 The main columns I worked with included:
 
 Loan details: loan_amount, term, int_rate, installment
+
 Borrower information: emp_length, emp_title, annual_income, dti
+
 Loan performance: loan_status, total_payment, last_payment_date
+
 Classification: grade, sub_grade, home_ownership, purpose
+
 Location: address_state
+
 Timeline: issue_date
+
 This step ensured the dataset was accurate, reliable, and ready for analysis.
 
 
