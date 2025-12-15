@@ -2,6 +2,7 @@
 Bank loan analysis is the process of examining customer and financial data to assess credit risk and determine whether a loan should be approved, rejected, or modified. It helps banks evaluate repayment capacity, minimize defaults, and make informed lending decisions.
 
 **1. Project Introduction**
+
 This project is a complete Bank Loan Analysis system that I built using SQL, Power Query, and Power BI.
 The goal of the project was to understand the bank’s loan patterns, borrower behavior, repayment performance, and overall risk across different segments.
 I followed an end-to-end process that includes:
