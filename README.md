@@ -1,176 +1,186 @@
-# Bank-Loan-Analysis
-Bank loan analysis is the process of examining customer and financial data to assess credit risk and determine whether a loan should be approved, rejected, or modified. It helps banks evaluate repayment capacity, minimize defaults, and make informed lending decisions.
+# Bank Loan Analysis Project
 
-**1. Project Introduction**
+## Project Overview
 
-This project is a complete Bank Loan Analysis system that I built using SQL, Power Query, and Power BI.
-The goal of the project was to understand the bank’s loan patterns, borrower behavior, repayment performance, and overall risk across different segments.
-I followed an end-to-end process that includes:
+This project is a complete **Bank Loan Analysis system** built using **SQL, Power Query, and Power BI**. The objective of the project is to analyze loan data to understand loan patterns, borrower behavior, repayment performance, and overall risk across different segments.
 
-  Data import
-  
-  Data cleaning
-  
-  SQL analysis
-  
-  Power BI modeling
-  
-  Report building
-  
-  Publishing and dashboard creation
-  
-This project represents the workflow of a real data analyst in a banking environment.”
+The project follows an **end-to-end data analytics workflow**, similar to a real-world banking analytics scenario, covering data preparation, analysis, visualization, and reporting.
 
-**2. Data Cleaning using Power Query Editor **
+### End-to-End Process
 
-I started with a raw dataset containing borrower information, loan details, financial metrics, and repayment history.
+* Data Import
+* Data Cleaning and Transformation
+* SQL-Based Analysis
+* Power BI Data Modeling
+* Report Creation (Summary, Overview, Details)
+* Publishing and Dashboard Creation
 
-Before analysis, the dataset needed extensive cleaning.
+---
 
-In Power Query Editor, I:
+## Data Cleaning Using Power Query Editor
 
-• Removed missing and duplicate entries
+The analysis began with a raw dataset containing borrower details, loan information, financial metrics, and repayment history. Before any analysis, extensive data cleaning was required to ensure accuracy and consistency.
 
-• Standardized text fields like emp_length, purpose, and home_ownership
+### Data Cleaning Steps
 
-• Transformed date fields (issue_date, last_payment_date, last_credit_pull_date)
+The following transformations were performed in **Power Query Editor**:
 
-• Converted all numeric columns into proper decimal formats
+* Removed missing and duplicate records
+* Standardized text fields such as employment length, loan purpose, and home ownership
+* Transformed date fields including issue date, last payment date, and last credit pull date
+* Converted all financial and numerical columns into appropriate decimal formats
+* Extracted Month and Year from issue date for time-based analysis
+* Ensured consistent naming conventions across all columns
+* Reviewed categorical value distributions to eliminate noise and unclear values
 
-• Extracted Month and Year from issue_date for trend analysis
+### Key Columns Used
 
-• Ensured naming consistency across all columns
+* **Loan Details:** loan_amount, term, int_rate, installment
+* **Borrower Information:** emp_length, emp_title, annual_income, dti
+* **Loan Performance:** loan_status, total_payment, last_payment_date
+* **Classification Fields:** grade, sub_grade, home_ownership, purpose
+* **Location:** address_state
+* **Timeline:** issue_date
 
-• Checked the distribution of categorical values to remove noise and unclear data
+This step ensured the dataset was clean, reliable, and ready for further analysis.
 
-The main columns I worked with included:
+---
 
-Loan details: loan_amount, term, int_rate, installment
+## SQL-Based Analysis
 
-Borrower information: emp_length, emp_title, annual_income, dti
+After data preparation, SQL was used to perform aggregations and extract meaningful insights relevant to banking operations.
 
-Loan performance: loan_status, total_payment, last_payment_date
+### Key Metrics Calculated
 
-Classification: grade, sub_grade, home_ownership, purpose
+* Total number of loan applications
+* Monthly and month-to-date loan applications
+* Total funded loan amount
+* Total amount received from borrowers
+* Average interest rate
+* Average debt-to-income (DTI) ratio
+* Good loan applications (Fully Paid and Current)
+* Bad loans (Charged Off) and total funded amount for bad loans
 
-Location: address_state
+### Summary Analysis Dimensions
 
-Timeline: issue_date
+Data was summarized and grouped by:
 
-This step ensured the dataset was accurate, reliable, and ready for analysis.
+* Loan status
+* Month of issue
+* State
+* Loan purpose
+* Loan term
+* Employment length
+* Verification status
+* Grade and sub-grade
 
+These SQL insights formed the foundation for KPI creation and reporting in Power BI, providing a clear view of loan distribution, repayment behavior, and risk levels.
 
-**3. SQL-Based Analysis **
+---
 
-After cleaning the data, I used SQL extensively to perform aggregations and extract meaningful insights.
-Some of the major metrics I calculated were:
+## Power BI Data Modeling
 
-  • Total number of loan applications
-  • Monthly and month-to-date loan applications
-  • Total funded loan amount
-  • Total amount received from borrowers
-  • Average interest rate
-  • Average debt-to-income ratio
-  • Good loan applications (Fully Paid + Current)
-  • Bad loans (Charged Off) and total bad-loan funded amount
-I also created summary tables grouped by important categories:
+The cleaned and aggregated data was imported into **Power BI** for modeling and visualization.
 
-  • Loan status
-  • Month of issue
-  • State
-  • Loan purpose
-  • Loan term
-  • Employment length
-  • Verification status
-  • Grade and sub-grade
+### Data Modeling Activities
 
-These SQL results provided the foundation for KPI creation in Power BI and gave a strong understanding of loan distribution, risk levels, repayment behaviour, and borrower patterns.
+* Created a dedicated **Date Table** to support time-intelligence calculations
+* Built relationships between fact and dimension tables
+* Developed DAX measures including:
 
-**4. Power BI Data Modeling**
+  * Total Loan Applications
+  * Total Funded Amount
+  * Total Amount Received
+  * Average Interest Rate
+  * Average DTI
+  * Good Loan Percentage and Bad Loan Percentage
+  * Month-over-Month comparisons
+* Optimized the data model for performance
+* Created hierarchies and applied proper formatting
 
-I then moved the cleaned and aggregated data into Power BI for reporting.
-The data modeling steps included:
+This modeling approach enabled dynamic filtering and interactive reporting.
 
-  • Creating a date table for time-intelligence calculations
-  • Building relationships between tables
-  • Creating DAX measures such as:
-      – Total Loan Applications
-      – Total Funded Amount
-      – Total Amount Received
-      – Avg Interest Rate
-      – Avg DTI
-      – Good Loan % and Bad Loan %
-      – Month-over-Month comparisons
-• Optimizing the data model for better performance
-• Formatting fields and creating hierarchies
-This allowed smooth filtering and dynamic reporting.
+---
 
-**5. Power BI Reports — Summary, Overview, Details** 
+## Power BI Reports
 
-a) Summary Report
+Three reports were created to serve different analytical needs.
 
-This report highlights the most important KPIs:
-  • Total loan applications
-  • Total funded amount
-  • Total amount received
-  • Average interest rate
-  • Average DTI
-  • Good loan vs bad loan ratio
-  • Month-to-date performance
-This gives management a quick snapshot of the overall loan portfolio.
+### 1. Summary Report
 
-b) Overview Report 
+The Summary Report provides a high-level snapshot of loan performance through key KPIs:
 
-This report provides deeper insights across categories:
-  • Monthly trends
-    – Shows seasonality and monthly application behaviour
-  • State-wise distribution
-    – Helps identify top-performing and high-risk states
-  • Purpose-wise loan analysis
-    – Reveals common reasons for borrowing
-  • Employment length analysis
-    – Shows the financial stability of borrowers
-  • Loan term distribution
-    – Compares short-term vs long-term loans
-  • Home ownership analysis
-    – Helps analyze risk based on borrower housing stability
-This dashboard helps stakeholders understand exactly where demand exists and which demographics are more reliable.
+* Total loan applications
+* Total funded amount
+* Total amount received
+* Average interest rate
+* Average DTI
+* Good loan vs bad loan ratio
+* Month-to-date performance
 
-c) Details Report 
+This report is designed for quick decision-making by management.
 
-This page provides full row-level visibility.
-It includes key fields like:
-  • Loan amount
-  • Interest rate
-  • Grade and sub-grade
-  • Employment length
-  • Total payment
-  • Loan status
-  • State and purpose
-Users can apply filters, drill into details, and analyze specific loan applications.
-This dashboard is especially useful for auditing, customer analysis, and risk validation.
+### 2. Overview Report
 
-**6. Published Dashboard**
+The Overview Report delivers deeper insights across multiple dimensions:
 
-After building all three dashboards, I published the report to the Power BI Service.
-I pinned the most important visuals to create a live Dashboard.
-The final dashboard allows:
-• Real-time monitoring
-• Slicer-based filtering
-• Mobile view support
-• Quick access for management
-This helps leadership track repayment activity, lending performance, and borrower behaviour instantly.
+* **Monthly Trends:** Identifies seasonality and application behavior over time
+* **State-wise Distribution:** Highlights top-performing and high-risk regions
+* **Purpose-wise Analysis:** Shows common reasons for borrowing
+* **Employment Length Analysis:** Assesses borrower financial stability
+* **Loan Term Distribution:** Compares short-term and long-term loans
+* **Home Ownership Analysis:** Evaluates risk based on housing status
 
-**7. Final Business Impact **
+This report helps stakeholders understand demand patterns and borrower reliability.
 
-This project provides multiple business benefits:
-  • Identifies profitable and risky loan segments
-  • Highlights repayment behaviour and cash flow trends
-  • Helps improve loan approval strategies
-  • Supports early identification of bad loans
-  • Enhances borrower segmentation
-  • Helps reduce default rates
-  • Enables monthly performance tracking
-  • Supports data-driven decision-making
-  
-Overall, it is a complete end-to-end analytics solution—from cleaning raw data, analyzing patterns through SQL, building dashboards, and delivering insights for management.
+### 3. Details Report
+
+The Details Report provides complete row-level visibility and supports in-depth analysis.
+
+Key fields included:
+
+* Loan amount
+* Interest rate
+* Grade and sub-grade
+* Employment length
+* Total payment
+* Loan status
+* State and loan purpose
+
+Users can apply filters, drill down into specific records, and perform audits or validations.
+
+---
+
+## Published Dashboard
+
+After completing the reports, they were published to **Power BI Service**. Key visuals were pinned to create a live dashboard.
+
+### Dashboard Capabilities
+
+* Real-time performance monitoring
+* Interactive slicers and filters
+* Mobile view support
+* Quick access to KPIs for leadership
+
+The dashboard enables continuous tracking of lending and repayment performance.
+
+---
+
+## Final Business Impact
+
+This project delivers strong business value by:
+
+* Identifying profitable and high-risk loan segments
+* Highlighting repayment behavior and cash flow trends
+* Supporting improved loan approval strategies
+* Enabling early identification of bad loans
+* Enhancing borrower segmentation
+* Helping reduce default rates
+* Allowing monthly and trend-based performance tracking
+* Supporting data-driven decision-making
+
+---
+
+## Conclusion
+
+This Bank Loan Analysis project demonstrates a complete end-to-end data analytics solution, starting from raw data cleaning to interactive dashboard delivery. By combining SQL, Power Query, and Power BI, the project provides actionable insights into borrower behavior, loan performance, and overall portfolio health, enabling smarter and more confident business decisions.
